@@ -1,0 +1,5 @@
+{
+    "html.autoCreateQuotes": true,
+    "editor.autoClosingOvertype": "auto",
+    "html.completion.attributeDefaultValue": "empty"
+}
