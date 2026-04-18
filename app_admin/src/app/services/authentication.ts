@@ -56,15 +56,21 @@ export class Authentication {
   //still valid. Even if we have a token we will still have to
   //reauthenticate if the token has expired
   
+  
+
   public isLoggedIn(): boolean {
-    const token: string = this.getToken();
-    if (token) {
-      const payload = JSON.parse(atob(token.split('.')[1]));
-      return payload.exp > (Date.now() /1000);
-    } else {
-      return false;
-    }
+  const token = this.getToken();
+  if (!token || token.split('.').length !== 3) {
+    return false;
   }
+
+  try {
+    const payload = JSON.parse(atob(token.split('.')[1]));
+    return payload.exp > Date.now() / 1000;
+  } catch {
+    return false;
+  }
+}
 
   //Retrieve the current user. This function should only be called
   //after the calling method has checked to make sure that the user

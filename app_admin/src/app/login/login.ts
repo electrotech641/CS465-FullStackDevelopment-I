@@ -38,6 +38,16 @@ export class Login {
     }
   }
 
+  public onRegisterSubmit(): void {
+    this.formError = '';
+    if(!this.credentials.email || !this.credentials.password || !this.credentials.name) {
+      this.formError = 'All fields are required, please try again';
+      //this.router.navigateByUrl('#'); //Return to login page
+    } else {
+      this.doRegister();
+    }
+  }
+
   private doLogin(): void {
   const newUser = {
     name: this.credentials.name,
@@ -52,5 +62,27 @@ export class Login {
     .catch(() => {
       this.formError = 'Login failed. Please try again.';
     });
+  }
+
+
+  private doRegister(): void {
+  const newUser = {
+    name: this.credentials.name,
+    email: this.credentials.email
+  } as User;
+
+  this.authenticationService.register(newUser, this.credentials.password)
+  .then(() => {
+    return this.authenticationService.login(newUser, this.credentials.password);
+  })
+  .then(() => {
+    console.log('Router::Direct');
+    this.router.navigate(['']);
+  })
+  .catch(() => {
+    this.formError = 'Registration failed. Please try again.';
+  });
+
+  
   }
 }
