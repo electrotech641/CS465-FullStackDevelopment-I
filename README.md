@@ -27,8 +27,24 @@ Functionality
 
 Testing
 
-    Methods for request and retrieval necessitate various types of API testing of endpoints, in addition to the difficulties of testing with added layers of security. Explain your understanding of methods, endpoints, and security in a full stack application.
+    Methods are the intent of requests, including GET, used to retrieve data only, POST, used to create new data, PUT, which is used to 
+    update existing data, and DELETE, used to remove data. Testing of these methods will depend on which one you are testing, as each 
+    one will be expecting specific data. GET being the simpleist as it just needs to know what data to retrieve, POST/PUT needs the data 
+    it is creating/editing.
+
+    Endpoints are where the client needs to send the requests and typically resembles a folder structure, for example www.blahblah.com/api/trips. 
+    Depending on the endpoint route, controller, and model, the endpoint could be expecting a GET, POST/PUT, or DELETE type of request. 
+
+    Security determines who is authorized to access what and adding more layers of security, such as JWT tokens, password hashing, HTTPS, and 
+    CORS, this adds complexity to the way we test as well. Depending on what we are testing and how many layers of security, we might have 
+    to ensure we have valid tokens, headers, and authorization, as well as ensuring tokens aren't expired. 
 
 Reflection
 
-    How has this course helped you in reaching your professional goals? What skills have you learned, developed, or mastered in this course to help you become a more marketable candidate in your career field?
+    This course has directly contributed to me being promoted to project manager in my current career and brought me one step closer to 
+    completing my degree in computer science. I have learned lots of skills in my degree path, and this one specifically helped me bring 
+    all of that together in a full stack application. It helped me see in a real world setting how all of these systems work together to form 
+    a seamless user experience, from the backend database, to the user facing interface, and everything in between, such as security layers. 
+    I have strengthened my ability to problem solve by evaluating technical information and identifying root causes. All of this makes me a 
+    much more marketable candidate should I choose a new career path. Bundled with my 20 years of professional experience, these new skills 
+    will help me lead projects with structure, adapt to new systems and tools, and analyze problems and propose solutions. 
